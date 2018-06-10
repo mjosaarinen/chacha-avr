@@ -13,7 +13,7 @@ level use case.
 The actual assembly language implementation is in `chacha_core_avr.S`, the
 rest is basically for serial output, testing, and benchmarking.
 
-# Running on Arduino
+## Running on Arduino
 
 The flashing code is incorporated into Makefile. You need to install 
 (just `apt install` on Debian/Ubuntu) at least `avr-gcc` and `avrdude` 
@@ -52,7 +52,7 @@ section 2.4.2 of RFC 7539 and can be used to verify correctness.
 
 The performance numbers are for a ChaCha8 block operation, not ChaCha20.
 
-# Running on SIMAVR
+## Running on SIMAVR
 
 If you don't have an Arduino lying about, you can fetch
 `simavr` (https://github.com/buserror/simavr) and test using it with
@@ -72,7 +72,7 @@ Run #01 5353 ticks / block.
 ^Csignal caught, simavr terminating
 ```
 
-# Comparison with a C Implementation
+## Comparison with a C Implementation
 
 An unrolled C implementation of the same permutation is included in 
 `chacha_core_c.c` and the `Makefile` contains instructions to include it. 
