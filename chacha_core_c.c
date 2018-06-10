@@ -11,7 +11,7 @@
 #define ROTL32(x, y)  (((x) << (y)) ^ ((x) >> (32 - (y))))
 #endif
 
-// Mixing function G  (blake2s "G" without the message words)
+// ChaCha Quarter Round
 
 #define CHACHA_QR(A, B, C, D) { \
     A += B; D ^= A; D = ROTL32(D, 16);  \
@@ -19,6 +19,8 @@
     A += B; D ^= A; D = ROTL32(D, 8);   \
     C += D; B ^= C; B = ROTL32(B, 7);   \
 }
+
+// ChaCha permutation -- dr is the number of double rounds
 
 void chacha_perm(uint8_t st[64], uint8_t dr)
 {
