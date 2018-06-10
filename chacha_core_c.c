@@ -11,7 +11,7 @@
 #define ROTL32(x, y)  (((x) << (y)) ^ ((x) >> (32 - (y))))
 #endif
 
-// ChaCha Quarter Round
+// ChaCha Quarter Round unrolled as a macro
 
 #define CHACHA_QR(A, B, C, D) { \
     A += B; D ^= A; D = ROTL32(D, 16);  \

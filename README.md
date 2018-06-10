@@ -6,7 +6,7 @@ chacha-avr
 A public domain implementation of **ChaCha20** on 8-bit 
 AVR microcontroller, just because *you never know when you might need one* !
 We implement the raw ChaCha permutation and include ChaCha20 keystream block 
-generation per [RFC 7539](https://tools.ietf.org/html/rfc7539) as an higher 
+generation per [RFC 7539](https://tools.ietf.org/html/rfc7539) as a higher 
 level use case. 
 
 The actual assembly language implementation is in `chacha_core_avr.S`, 
