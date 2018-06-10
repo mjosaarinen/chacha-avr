@@ -5,12 +5,24 @@ chacha-avr
 
 A public domain implementation of **ChaCha20** on 8-bit 
 AVR microcontroller, just because *you never know when you might need one* !
-
 We implement the raw ChaCha permutation and include ChaCha20 keystream block 
 generation per [RFC 7539](https://tools.ietf.org/html/rfc7539) as an higher 
-level use case. The actual assembly language implementation is in 
-`chacha_core_avr.S`, the rest is basically for serial output, testing, 
-and benchmarking.
+level use case. 
+
+The actual assembly language implementation is in `chacha_core_avr.S`, 
+the rest is basically for serial output, testing, and benchmarking.
+
+## Comparison with a fast C implementation
+
+An unrolled C implementation of the same permutation is included in 
+`chacha_core_c.c` and the `Makefile` contains instructions for swapping it in.
+
+As can be seen, the C language ChaCha8 block operation requires 18163 ticks, 
+i.e. 3.4 times more time. Furthermore, the code size is 2594 bytes larger. 
+My handwritten assembly language permutation is only 324 bytes. This means
+that you can get high security cryptography running with less than half a 
+kilobyte of code altogether.
+
 
 ## Running on Arduino
 
@@ -70,17 +82,6 @@ Run #00 5363 ticks / block.
 Run #01 5353 ticks / block.
 ^Csignal caught, simavr terminating
 ```
-
-## Comparison with a C Implementation
-
-An unrolled C implementation of the same permutation is included in 
-`chacha_core_c.c` and the `Makefile` contains instructions to include it. 
-
-The ChaCha8 block operation requires 18163 ticks with the C implementation, 
-i.e. 3.4 times more time. Furthermore, the code size is 2594 bytes larger. 
-The handwritten assembly language permutation is only 324 bytes -- you can 
-get high security cryptography running with less than half a kilobyte of code.
-
 ### Have fun
 
 Cheers, -markku
