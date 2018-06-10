@@ -65,8 +65,8 @@ The performance numbers are for a ChaCha8 block operation, not ChaCha20.
 
 ## Running on SIMAVR
 
-If you don't have an Arduino lying about, you can fetch
-`simavr` (https://github.com/buserror/simavr) and test using it with
+If you don't have an Arduino lying about, you can use
+`simavr` (https://github.com/buserror/simavr) and test the code with
 `make sim`.
 
 This cycle-perfect simulator simulates even the UART so the output will be
