@@ -163,43 +163,43 @@ chacha_perm:
         push    r17
 
 .iter:
-        ldi     r20,    0
+        ldi     r20,    0               //  QR( v[ 0], v[ 4], v[ 8], v[12] )
         ldi     r21,    16
         ldi     r26,    16
         ldi     r27,    16
-        call    .qr                    //  QR( v[ 0], v[ 4], v[ 8], v[12] )
+        call    .qr
 
-        ldi     r20,    4
-        call    .qr                    //  QR( v[ 1], v[ 5], v[ 9], v[13] )
+        ldi     r20,    4               //  QR( v[ 1], v[ 5], v[ 9], v[13] )
+        call    .qr
 
-        ldi     r20,    8
-        call    .qr                    //  QR( v[ 2], v[ 6], v[10], v[14] )
+        ldi     r20,    8               //  QR( v[ 2], v[ 6], v[10], v[14] )
+        call    .qr
 
         ldi     r20,    12
-        call    .qr                    //  QR( v[ 3], v[ 7], v[11], v[15] )
+        call    .qr                     //  QR( v[ 3], v[ 7], v[11], v[15] )
 
-        ldi     r20,    0
+        ldi     r20,    0               //  QR( v[ 0], v[ 5], v[10], v[15] )
         ldi     r21,    20
         ldi     r26,    20
         ldi     r27,    20
-        call    .qr                    //  QR( v[ 0], v[ 5], v[10], v[15] )
+        call    .qr
 
-        ldi     r20,    4
+        ldi     r20,    4               //  QR( v[ 1], v[ 6], v[11], v[12] )
         ldi     r27,    4
-        call    .qr                    //  QR( v[ 1], v[ 6], v[11], v[12] )
+        call    .qr
 
-        ldi     r20,    8
+        ldi     r20,    8               //  QR( v[ 2], v[ 7], v[ 8], v[13] )
         ldi     r26,    4
         ldi     r27,    20
-        call    .qr                    //  QR( v[ 2], v[ 7], v[ 8], v[13] )
+        call    .qr
 
-        ldi     r20,    12
+        ldi     r20,    12              //  QR( v[ 3], v[ 4], v[ 9], v[14] )
         ldi     r21,    4
         ldi     r26,    20
-        call    .qr                    //  QR( v[ 3], v[ 4], v[ 9], v[14] )
+        call    .qr
 
-        dec     r22                    //  number of iterations (input)
-        brne    .iter
+        dec     r22                     //  r22 = "dr", double round count
+        brne    .iter                   //  iterate
 
         pop     r17
         pop     r16
