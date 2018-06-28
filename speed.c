@@ -75,7 +75,8 @@ int main(void)
     size_t i, run;
     uint64_t t;
 
-    uint8_t st[64];
+    // has to be aligned
+    uint8_t st[64] __attribute__((aligned(64)));
 
     // Output keystream
 

@@ -15,28 +15,24 @@ __zero_reg__ = 1
         movw    z,      r24             // input pointer r25:r24
 
         add     zl,     r20             // r20: A offset to start
-        adc     zh,     __zero_reg__
         ld      r4,     z               // load A = (  r4,  r5,  r6,  r7 )
         ldd     r5,     z + 1
         ldd     r6,     z + 2
         ldd     r7,     z + 3
 
         add     zl,     r21             // r21: B offset to A
-        adc     zh,     __zero_reg__
         ld      r8,     z               // load B = (  r8,  r9, r10, r11 )
         ldd     r9,     z + 1
         ldd     r10,    z + 2
         ldd     r11,    z + 3
 
         add     zl,     r26             // r26: C offset to B
-        adc     zh,     __zero_reg__
         ld      r12,    z               // load C = ( r12, r13, r14, r15 )
         ldd     r13,    z + 1
         ldd     r14,    z + 2
         ldd     r15,    z + 3
 
         add     zl,     r27             // r27: D offset to C
-        adc     zh,     __zero_reg__
         ld      r16,    z               // load D = ( r16, r17, r18, r19 )
         ldd     r17,    z + 1
         ldd     r18,    z + 2
@@ -110,28 +106,24 @@ __zero_reg__ = 1
         movw    z,      r24             // input pointer r25:r24
 
         add     zl,     r20             // r20: A offset from start
-        adc     zh,     __zero_reg__
         st      z,      r4              // store A
         std     z + 1,  r5
         std     z + 2,  r6
         std     z + 3,  r7
 
         add     zl,     r21             // r21: B offset to A
-        adc     zh,     __zero_reg__
         st      z,      r10             // store B
         std     z + 1,  r11
         std     z + 2,  r8
         std     z + 3,  r9
 
         add     zl,     r26             // r26: C offset to B
-        adc     zh,     __zero_reg__
         st      z,      r12             // store C
         std     z + 1,  r13
         std     z + 2,  r14
         std     z + 3,  r15
 
         add     zl,     r27             // r27: D offset to C
-        adc     zh,     __zero_reg__
         st      z,      r17             // store D
         std     z + 1,  r18
         std     z + 2,  r19

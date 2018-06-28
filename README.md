@@ -18,7 +18,7 @@ An unrolled C implementation of the same permutation is included in
 `chacha_core_c.c` and the `Makefile` contains instructions for swapping it in.
 
 As can be seen, the C language ChaCha8 block operation requires 18163 ticks, 
-i.e. 3.4 times more time. Furthermore, the code size is 2594 bytes larger. 
+i.e. 3.6 times more time. Furthermore, the code size is 2594 bytes larger. 
 My handwritten assembly language permutation is only 324 bytes. This means
 that you can get high security cryptography running with less than half a 
 kilobyte of code altogether.
@@ -47,16 +47,16 @@ mkdir -p obj/
 stty -F /dev/ttyACM0 raw icanon eof \^d 38400
 cat < /dev/ttyACM0
 224F51F3401BD9E12FDE276FB8631DED8C131F823D2C06E27E4FCAEC9EF3CF788A3B0AA372600A92B57974CDED2B9334794CBA40C63E34CDEA212C4CF07D41B769A6749F3F630F4122CAFE28EC4DC47E26D4346D70B98C73F3E9C53AC40C5945398B6EDA1A832C89C167EACD901D7E2BF363
-Run #00 5363 ticks / block
-Run #01 5353 ticks / block
-Run #02 5347 ticks / block
-Run #03 5345 ticks / block
-Run #04 5343 ticks / block
-Run #05 5342 ticks / block
-Run #06 5342 ticks / block
-Run #07 5342 ticks / block
-Run #08 5342 ticks / block
-Run #09 5342 ticks / block
+Run #00 5073 ticks / block
+Run #01 5063 ticks / block
+Run #02 5057 ticks / block
+Run #03 5055 ticks / block
+Run #04 5053 ticks / block
+Run #05 5052 ticks / block
+Run #06 5052 ticks / block
+Run #07 5051 ticks / block
+Run #08 5052 ticks / block
+Run #09 5052 ticks / block
 ```
 That's a success. The long hex string there should match with keystream from 
 section 2.4.2 of RFC 7539 and can be used to verify correctness. 
@@ -78,8 +78,8 @@ Loaded 72 .data
 UART: 0 configured to 0019 = 2403.8462 bps (x1), 8 data 1 stop
 UART: Roughly 4576 usec per byte
 224F51F3401BD9E12FDE276FB8631DED8C131F823D2C06E27E4FCAEC9EF3CF788A3B0AA372600A92B57974CDED2B9334794CBA40C63E34CDEA212C4CF07D41B769A6749F3F630F4122CAFE28EC4DC47E26D4346D70B98C73F3E9C53AC40C5945398B6EDA1A832C89C167EACD901D7E2BF363.
-Run #00 5363 ticks / block.
-Run #01 5353 ticks / block.
+Run #00 5073 ticks / block.
+Run #01 5063 ticks / block.
 ^Csignal caught, simavr terminating
 ```
 ### Have fun
